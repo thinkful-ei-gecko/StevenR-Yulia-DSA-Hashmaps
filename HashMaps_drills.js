@@ -103,4 +103,35 @@ function isPalindrome(str) {
   return true;
 }
 
-console.log(isPalindrome("dad"))
+//console.log(isPalindrome("dad"))
+
+//6. Anagram grouping
+
+function anagramGroup(arr) {
+  const mapArr = [];
+  
+  for (let i=0; i<arr.length; i++) {
+    mapArr[i] = new HashMap();
+    for (let j=0; j<arr[i].length; j++) {
+      
+      mapArr[i].set(arr[i][j], 1);
+    }
+
+  }
+  //console.log(mapArr[0]);
+}
+
+// anagramGroup(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']);
+
+function anagram(arr) {
+  const grouped = new Map();
+  arr.forEach(word => {
+    const sorted = word.split('').sort().join('');
+    const group = grouped.get(sorted) || [];
+    grouped.set(sorted, [...group, word]);
+  });
+  return Array.from(grouped.values());
+  
+}
+
+console.log(anagram(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
