@@ -1,7 +1,7 @@
 const HashMap = require('./HashMap');
 
 function main() {
-  const lotr = new HashMap;
+  const lotr = new HashMap();
 
   HashMap.MAX_LOAD_RATIO = 0.5;
   HashMap.SIZE_RATIO = 3;
@@ -45,7 +45,36 @@ const WhatDoesThisDo = function(){
 
   console.log(map1.get(str1));
   console.log(map2.get(str3));
-}
-console.log(WhatDoesThisDo())
+};
+//console.log(WhatDoesThisDo())
 
-// 3. Our hashmap would look like 22, 10 88, empty, 4, 15, 28, 17, 59, 31 empty
+/* 3. Our hashmap would look like 
+open addressing 22, 10 88, empty, 4, 15, 28, 17, 59, 31 empty
+separate chaining empty 28 20 12 empty 5 15 empty 17
+                        19               33
+                        10
+*/
+
+//4. Remove duplicates
+
+function removeDuplicates(str) {
+  HashMap.MAX_LOAD_RATIO = 0.5;
+  HashMap.SIZE_RATIO = 3;
+  let chars = new HashMap();
+  let newStr = '';
+  for (let i = 0; i<str.length; i++) {
+    chars.set(str[i], str[i]);
+  }
+  for (let i=0; i<str.length; i++) {
+    if (!newStr.includes(str[i]) && str[i] !== ' ') {
+      newStr = newStr + chars.get(str[i]);
+    }
+    
+  
+  }
+  return newStr;
+}
+
+
+console.log(removeDuplicates('google all that you think can think of'));
+//gole a th yu ink c f
