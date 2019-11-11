@@ -78,3 +78,29 @@ function removeDuplicates(str) {
 
 console.log(removeDuplicates('google all that you think can think of'));
 //gole a th yu ink c f
+
+// question 5.
+
+function isPalindrome(str) {
+  const charSet = new HashMap();
+  for (let i=0; i< str.length; i++) {
+    if (!charSet[str[i]]) {
+      charSet[str[i]] = 1;
+    } else {
+      charSet[str[i]]++;
+    }
+  
+  }
+  let countOdds = 0;
+  for (let i=0; i<str.length; i++) {
+    if (charSet[str[i]]%2 === 1) {
+      countOdds++;
+    }
+  }
+  if(countOdds > 1) {
+    return false;
+  }
+  return true;
+}
+
+console.log(isPalindrome("dad"))
