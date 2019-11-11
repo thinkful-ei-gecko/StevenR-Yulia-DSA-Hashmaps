@@ -3,8 +3,8 @@ const HashMap = require('./HashMap');
 function main() {
   const lotr = new HashMap;
 
-  lotr.MAX_LOAD_RATIO = 0.5;
-  lotr.SIZE_RATIO = 3;
+  HashMap.MAX_LOAD_RATIO = 0.5;
+  HashMap.SIZE_RATIO = 3;
 
   lotr.set('Hobbit', 'Bilbo');
   lotr.set('Hobbit', 'Frodo');
